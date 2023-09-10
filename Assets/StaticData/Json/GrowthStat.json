@@ -1,0 +1,38 @@
+﻿[
+  {
+    "index": 1000,
+    "name": "흑기사",
+    "maxHp": 50.0,
+    "maxMana": 30.0,
+    "maxExp": 1.5,
+    "atk": 4.0,
+    "def": 2.0
+  },
+  {
+    "index": 1001,
+    "name": "창기사",
+    "maxHp": 50.0,
+    "maxMana": 30.0,
+    "maxExp": 1.5,
+    "atk": 5.0,
+    "def": 1.0
+  },
+  {
+    "index": 1002,
+    "name": "마법사",
+    "maxHp": 30.0,
+    "maxMana": 50.0,
+    "maxExp": 1.5,
+    "atk": 3.0,
+    "def": 1.0
+  },
+  {
+    "index": 1003,
+    "name": "궁수",
+    "maxHp": 30.0,
+    "maxMana": 50.0,
+    "maxExp": 1.5,
+    "atk": 3.0,
+    "def": 1.0
+  }
+]

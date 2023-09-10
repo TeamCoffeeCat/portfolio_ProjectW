@@ -1,0 +1,42 @@
+﻿[
+  {
+    "index": 1000,
+    "name": "체력포션",
+    "type": "Consume",
+    "subType": "HpPotion",
+    "value": 20.0,
+    "prefabPath": "Prefabs/Object/Item/HpPotion",
+    "spritePath": "Sprite/HpPotion",
+    "colorCode": "#F18086"
+  },
+  {
+    "index": 1001,
+    "name": "고급 체력포션",
+    "type": "Consume",
+    "subType": "HpPotion",
+    "value": 50.0,
+    "prefabPath": "Prefabs/Object/Item/HpPotion",
+    "spritePath": "Sprite/HpPotion",
+    "colorCode": "#FF000D"
+  },
+  {
+    "index": 1002,
+    "name": "마력포션",
+    "type": "Consume",
+    "subType": "MpPotion",
+    "value": 30.0,
+    "prefabPath": "Prefabs/Object/Item/MpPotion",
+    "spritePath": "Sprite/MpPotion",
+    "colorCode": "#80CAF1"
+  },
+  {
+    "index": 1003,
+    "name": "고급 마력포션",
+    "type": "Consume",
+    "subType": "MpPotion",
+    "value": 100.0,
+    "prefabPath": "Prefabs/Object/Item/MpPotion",
+    "spritePath": "Sprite/MpPotion",
+    "colorCode": "#0072FF"
+  }
+]

@@ -1,0 +1,44 @@
+﻿[
+  {
+    "index": 1000,
+    "name": "냥이",
+    "atkType": "Normal",
+    "moveSpeed": 2.0,
+    "detectionRange": 5.0,
+    "atkRange": 0.8,
+    "atkInterval": 2.0,
+    "maxHp": 25.0,
+    "MaxMana": 50.0,
+    "atk": 5.0,
+    "getExp": 10.0,
+    "resourcePath": "Prefabs/Actor/Monster/Cat"
+  },
+  {
+    "index": 1001,
+    "name": "버섯",
+    "atkType": "Normal",
+    "moveSpeed": 2.0,
+    "detectionRange": 5.0,
+    "atkRange": 0.8,
+    "atkInterval": 2.0,
+    "maxHp": 20.0,
+    "MaxMana": 60.0,
+    "atk": 4.0,
+    "getExp": 5.0,
+    "resourcePath": "Prefabs/Actor/Monster/Muchroom"
+  },
+  {
+    "index": 1002,
+    "name": "무",
+    "atkType": "Normal",
+    "moveSpeed": 2.0,
+    "detectionRange": 5.0,
+    "atkRange": 0.8,
+    "atkInterval": 2.0,
+    "maxHp": 20.0,
+    "MaxMana": 40.0,
+    "atk": 3.0,
+    "getExp": 5.0,
+    "resourcePath": "Prefabs/Actor/Monster/Radish"
+  }
+]

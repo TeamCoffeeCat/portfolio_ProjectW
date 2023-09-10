@@ -1,0 +1,48 @@
+﻿[
+  {
+    "index": 1000,
+    "name": "StartingVillage",
+    "genMonsters": [
+      -1
+    ],
+    "spawnArea": [
+      -1
+    ],
+    "warpStageRef": [
+      1001
+    ],
+    "warpPosition": [
+      {
+        "x": -0.66,
+        "y": 0.92,
+        "z": 11.04
+      }
+    ],
+    "resourcePath": "Prefabs/Stage/StartingVillage"
+  },
+  {
+    "index": 1001,
+    "name": "BeginnerHuntingGround",
+    "genMonsters": [
+      1000,
+      1001,
+      1002
+    ],
+    "spawnArea": [
+      0,
+      0,
+      0
+    ],
+    "warpStageRef": [
+      1000
+    ],
+    "warpPosition": [
+      {
+        "x": 6.53,
+        "y": 5.53,
+        "z": 10.94
+      }
+    ],
+    "resourcePath": "Prefabs/Stage/BeginnerHuntingGround"
+  }
+]
