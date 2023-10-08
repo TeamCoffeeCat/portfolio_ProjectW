@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 172204979}
-  - component: {fileID: 172204981}
   - component: {fileID: 172204982}
   m_Layer: 0
   m_Name: SpawnPos_Midium
@@ -156,19 +155,6 @@ Transform:
   m_Father: {fileID: 258520949}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &172204981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172204978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074b8ba7278c735428a2d16aeaf32195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2.2
 --- !u!114 &172204982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2.3
   monsterCount: 3
-  canRespawn: 0
 --- !u!1 &258520947
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +226,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 614284514}
-  - component: {fileID: 614284515}
   - component: {fileID: 614284516}
   m_Layer: 0
   m_Name: SpawnPos_Big
@@ -265,19 +249,6 @@ Transform:
   m_Father: {fileID: 258520949}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &614284515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614284510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074b8ba7278c735428a2d16aeaf32195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2.8
 --- !u!114 &614284516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2.8
   monsterCount: 4
-  canRespawn: 0
 --- !u!1 &1211886140
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +469,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1784617412}
-  - component: {fileID: 1784617414}
   - component: {fileID: 1784617415}
   m_Layer: 0
   m_Name: SpawnPos_Small
@@ -523,19 +492,6 @@ Transform:
   m_Father: {fileID: 258520949}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1784617414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784617411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074b8ba7278c735428a2d16aeaf32195, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 1.8
 --- !u!114 &1784617415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +506,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.8
   monsterCount: 2
-  canRespawn: 0
 --- !u!1 &1853730144
 GameObject:
   m_ObjectHideFlags: 0

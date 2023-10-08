@@ -1,13 +1,15 @@
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using CoffeeCat;
 using ProjectW.Object;
 using static ProjectW.Define.Actor;
 
+[SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
 public class MonsterStateMachine : StateMachine
 {
     private Monster monster;
 
-    private float findPlayerInterval = 0.25f;
+    private float findPlayerInterval = 0.5f;
     private float currentFindInterval = 0f;
 
     private float attackInterval = 0f;
@@ -37,16 +39,19 @@ public class MonsterStateMachine : StateMachine
         currentAttackInterval += Time.deltaTime;
     }
 
+    // Idle 상태 진입 시 1회 호출
     protected override void Idle_Enter()
     {
         anim.SetBool(walkAnimHash, false);
     }
 
+    // Idle 상태에서 프레임마다 호출
     protected override void Idle_Update()
     {
-        // Find Player
+        // 일정 시간마다 플레이어의 위치를 탐색
         if (findPlayerInterval <= currentFindInterval)
         {
+            // 플레이어의 위치를 탐색 가능한 거리라면
             if (monster.IsPlayerInTraceDistance())
             {
                 StateChange(State.Walk);
@@ -54,6 +59,7 @@ public class MonsterStateMachine : StateMachine
         }
     }
 
+    // Idle 상태 탈출 시 1회 호출
     protected override void Idle_Exit()
     {
         currentFindInterval = 0f;
@@ -92,41 +98,32 @@ public class MonsterStateMachine : StateMachine
         monster.NavMeshStop();
     }
 
-    protected override void Attack_Enter()
+    protected override void Attack_Enter() // 공격 상태 진입 시 1회 호출
     {
         anim.SetTrigger(attackAnimHash);
         monster.OnAttack();
     }
 
-    protected override void Attack_Update()
+    protected override void Attack_Update() // 공격 상태 시 매 프레임 호출
     {
-        // normalzied Time = 0f ~ 1f
-        // if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         if (finishAttack)
         {
-            if (monster.IsPlayerInTraceDistance())
-            {
-                StateChange(State.Walk);
-            }
-            else
-            {
-                StateChange(State.Idle);
-            }
+            StateChange(monster.IsPlayerInTraceDistance() ? State.Walk : State.Idle);
         }
     }
 
-    protected override void Attack_Exit()
+    protected override void Attack_Exit() // 공격 상태에서 다른 상태로 변경 시 1회 호출
     {
         currentAttackInterval = 0f;
         finishAttack = false;
     }
 
-    protected override void Hit_Enter()
+    protected override void Hit_Enter() // 피격 상태 진입 시 1회 호출
     {
         anim.SetTrigger(hitAnimHash);
     }
 
-    protected override void Hit_Update()
+    protected override void Hit_Update() // 피격 상태 시 매 프레임 호출
     {
         if (monster.IsDead())
         {
@@ -135,18 +132,11 @@ public class MonsterStateMachine : StateMachine
 
         if (finishHit)
         {
-            if (monster.IsPlayerInTraceDistance())
-            {
-                StateChange(State.Walk);
-            }
-            else
-            {
-                StateChange(State.Idle);
-            }
+            StateChange(monster.IsPlayerInTraceDistance() ? State.Walk : State.Idle);
         }
     }
 
-    protected override void Hit_Exit()
+    protected override void Hit_Exit() // 피격 상태에서 다른 상태로 변경 시 1회 호출
     {
         finishHit = false;
     }

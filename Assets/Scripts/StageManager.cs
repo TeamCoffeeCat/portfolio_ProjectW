@@ -48,7 +48,7 @@ namespace ProjectW
             var resourceManager = ResourceManager.Instance;
 
             // 현재 스테이지 객체가 존재한다면
-            if (currentStage != null)
+            if (!currentStage)
                 // 새로운 스테이지 객체를 생성할 것이므로 파괴
                 Destroy(currentStage);
 
@@ -121,9 +121,10 @@ namespace ProjectW
 
         public void WarpStage(SceneType sceneType, int warpIndex)
         {
-            var stage = GameManager.SD.sdStages.Where(_ => _.name == sceneType.ToString()).FirstOrDefault();
+            var stage = GameManager.SD.sdStages.FirstOrDefault(_ => _.name == sceneType.ToString());
             GameManager.User.boStage.sdStage = stage;
             GameManager.Instance.LoadScene(sceneType, ChangeStage(stage, sceneType), OnWarpStageComplete);
+            return;
 
             void OnWarpStageComplete()
             {

@@ -59,7 +59,7 @@ namespace ProjectW.Object
         private void FixedUpdate()
         {
             // 플레이어 캐릭터가 세팅되기 전에는 입력할 수 없도록
-            if (PlayerCharacter == null)
+            if (!PlayerCharacter)
                 return;
 
             // 플레이어가 죽었다면 입력할 수 없도록
@@ -102,20 +102,21 @@ namespace ProjectW.Object
         }
 
         #region 입력 구현부
-        public void GetAxisX(float value) => PlayerCharacter.boActor.moveDir.x = value;
 
-        public void GetAxisZ(float value) => PlayerCharacter.boActor.moveDir.z = value;
+        private void GetAxisX(float value) => PlayerCharacter.boActor.moveDir.x = value;
 
-        public void CameraRotation(float value)
+        private void GetAxisZ(float value) => PlayerCharacter.boActor.moveDir.z = value;
+
+        private void CameraRotation(float value)
         {
             mainCamera.RotateAround(PlayerCharacter.transform.position, Vector3.up, value * Define.Camera.RotSpeed);
         }
 
         public void MouseLeft() => PlayerCharacter.stateMachine.StateChange(State.Attack);
 
-        public void ActiveInventoryUI() => UIPresenter.Instance.SetActiveInventoryUI();
+        private void ActiveInventoryUI() => UIPresenter.Instance.SetActiveInventoryUI();
 
-        public void ActiveSaveDataUI() => UIPresenter.Instance.SetActiveSystemMenu();
+        private void ActiveSaveDataUI() => UIPresenter.Instance.SetActiveSystemMenu();
         #endregion
     }
 }

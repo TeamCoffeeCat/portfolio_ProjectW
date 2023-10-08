@@ -1,8 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using ProjectW.Object;
 using UnityEngine;
 using CoffeeCat;
 using State = ProjectW.Define.Actor.State;
 
+[SuppressMessage("ReSharper", "PossibleNullReferenceException")]
+[SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
 public class CharacterStateMachine : StateMachine
 {
     private Character character;
@@ -10,8 +13,8 @@ public class CharacterStateMachine : StateMachine
     private float attackInterval = 0f;
     private float currentAttackInterval = 0f;
 
-    private readonly KeyCode jump = KeyCode.Space;
-    private readonly KeyCode attack = KeyCode.Mouse0;
+    private const KeyCode jump = KeyCode.Space;
+    private const KeyCode attack = KeyCode.Mouse0;
     private readonly int walkAnimHash = Animator.StringToHash("IsWalk");
     private readonly int jumpAnimHash = Animator.StringToHash("JumpTrigger");
     private readonly int attackAnimHash = Animator.StringToHash("AttackTrigger");

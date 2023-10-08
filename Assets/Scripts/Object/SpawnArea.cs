@@ -8,19 +8,13 @@ namespace ProjectW.Object
     {
         public float radius;
         public int monsterCount;
-        public bool canRespawn = true;
 
-        public void CheckCanRespawn()
+        public bool CanRespawn()
         {
-            var monsters = Physics.OverlapSphere(transform.position, radius, 1 << LayerMask.NameToLayer("Monster"));
+            var hitMon = new Collider[monsterCount];
+            var monsters = Physics.OverlapSphereNonAlloc(transform.position, radius, hitMon, 1 << LayerMask.NameToLayer("Monster"));
 
-            if (monsters.Length == 0)
-            {
-                canRespawn = true;
-                return;
-            }
-
-            canRespawn = false;
+            return monsters <= 0;
         }
     }
 }

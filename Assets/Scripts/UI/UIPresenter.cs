@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using ProjectW.Object;
 using ProjectW.Resource;
 using ProjectW.Util;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 namespace ProjectW
 {
+    [SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
     public class UIPresenter : Singleton<UIPresenter>
     {
         [SerializeField] private SaveDataUI saveDataUI;
@@ -13,8 +15,8 @@ namespace ProjectW
         private IngameUI ingameUI;
         private InventoryUI inventoryUI;
 
-        // TO DO : �ý��� �޼���
-        // ex) ������ ĭ ����, ������ ȹ��, ������ ��
+        private readonly string ingameUIpath = "Prefabs/UI/IngameUI";
+        private readonly string inventoryUIpath = "Prefabs/UI/InventoryUI";
 
         private void Start()
         {
@@ -27,6 +29,7 @@ namespace ProjectW
             UpdateCursorIcon();
         }
 
+        // Ingame에서 사용 할 UI의 Initialize
         public void InitUI(Character character)
         {
             InitIngameUI(character);
@@ -36,21 +39,28 @@ namespace ProjectW
 
         private void InitIngameUI(Character character)
         {
-            var ingame = Instantiate(ResourceManager.Instance.LoadObject("Prefabs/UI/IngameUI"));
+            // 인게임에서 사용 할 UI 복사생성
+            var ingame = Instantiate(ResourceManager.Instance.LoadObject(ingameUIpath));
+            // UI를 컨트롤 할 클래스에 접근하여 초기화
             ingameUI = ingame.GetComponent<IngameUI>();
             ingameUI.Init(character);
+            
+            // 버튼에 이벤트 할당
             ingameUI.SaveButton.onClick.AddListener(() =>
             {
                 ingameUI.SystemMenu.SetActive(false);
                 saveDataUI.gameObject.SetActive(true); 
             });
-            ingameUI.QuitButton.onClick.AddListener(() => Application.Quit());
+            ingameUI.QuitButton.onClick.AddListener(Application.Quit);
         }
 
         private void InitInventoryUI()
         {
-            var inventory = Instantiate(ResourceManager.Instance.LoadObject("Prefabs/UI/InventoryUI"));
+            // 인벤토리 UI 복사생성
+            var inventory = Instantiate(ResourceManager.Instance.LoadObject(inventoryUIpath));
+            // 상시 표출 할 UI가 아니므로 비활성화
             inventory.SetActive(false);
+            // UI를 컨트롤 할 클래스에 접근하여 초기화
             inventoryUI = inventory.GetComponent<InventoryUI>();
             inventoryUI.Init();
         }
@@ -96,6 +106,7 @@ namespace ProjectW
 
         private void UpdateCursorIcon()
         {
+            Cursor.visible = false;
             Vector2 mousePos = Input.mousePosition;
             CursorIcon.position = mousePos + new Vector2(13f, -25f);
         }

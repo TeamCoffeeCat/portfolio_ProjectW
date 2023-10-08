@@ -1,10 +1,8 @@
+using System.IO;
+using UnityEngine;
 using Newtonsoft.Json;
 using ProjectW.Dummy;
 using ProjectW.Util;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
 
 namespace ProjectW.DB
 {
@@ -17,7 +15,7 @@ namespace ProjectW.DB
             path = Application.persistentDataPath;
         }
 
-        public void CreateNewCharacter(string nickname)
+        public static void CreateNewCharacter(string nickname)
         {
             var userData = new UserData(nickname);
             DummyServer.Instance.userData = userData;
@@ -39,7 +37,7 @@ namespace ProjectW.DB
             File.WriteAllText($"{path}/SaveData_{dataNum}.json", saveData);
         }
 
-        public void SetUserData(BoUser boUser)
+        private void SetUserData(BoUser boUser)
         {
             var userData = DummyServer.Instance.userData;
             var lastPos = IngameManager.Instance.GetCharacterLastPosition();
@@ -70,12 +68,7 @@ namespace ProjectW.DB
 
         public bool IsExistSaveData(int dataNum)
         {
-            if (File.Exists($"{path}/SaveData_{dataNum}.json"))
-            {
-                return true;
-            }
-
-            return false;
+            return File.Exists($"{path}/SaveData_{dataNum}.json");
         }
 
         public UserData LoadUserData(int dataNum)

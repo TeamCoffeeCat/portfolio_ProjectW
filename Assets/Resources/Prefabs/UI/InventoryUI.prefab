@@ -696,6 +696,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 3832983249528510021}
   ItemCount: {fileID: 3488430050310448552}
   CountText: {fileID: 6359469211662226}
@@ -1414,6 +1425,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 9144278792594321406}
   ItemCount: {fileID: 890095695048599694}
   CountText: {fileID: 3532083696338077934}
@@ -2327,6 +2349,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 1334595454522570205}
   ItemCount: {fileID: 1334595454820607461}
   CountText: {fileID: 1334595454541371093}
@@ -3198,6 +3231,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 7937821920559996413}
   ItemCount: {fileID: 8850716945377584755}
   CountText: {fileID: 5131240672034345839}
@@ -3519,6 +3563,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 2873284155184152631}
   ItemCount: {fileID: 5537032989248374751}
   CountText: {fileID: 8653488826042256802}
@@ -3629,6 +3684,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 7403532426583432068}
   ItemCount: {fileID: 2187381543418296740}
   CountText: {fileID: 6795129307643718665}
@@ -4009,6 +4075,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 4293661531295988199}
   ItemCount: {fileID: 6840442068520856954}
   CountText: {fileID: 141458365681493747}
@@ -4196,6 +4273,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 6911839164943464602}
   ItemCount: {fileID: 5457663784445564132}
   CountText: {fileID: 7694243999312635882}
@@ -5498,6 +5586,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 7371935779866079414}
   ItemCount: {fileID: 8288728164684368822}
   CountText: {fileID: 8417276292877850045}
@@ -6521,6 +6620,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 6296002777754180480}
   ItemCount: {fileID: 3244196258957695594}
   CountText: {fileID: 1855131234834070967}
@@ -7234,6 +7344,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 1655366806251206396}
   ItemCount: {fileID: 7575577048443534313}
   CountText: {fileID: 7178925122913930808}
@@ -7633,6 +7754,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 8448632506879800255}
   ItemCount: {fileID: 5807733899354073149}
   CountText: {fileID: 5218422212585238925}
@@ -8378,6 +8510,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 381978014260654298}
   ItemCount: {fileID: 8838909899007593460}
   CountText: {fileID: 7117116924286727665}
@@ -8758,6 +8901,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 9003923375633158394}
   ItemCount: {fileID: 3913244655802034363}
   CountText: {fileID: 7642351685554729386}
@@ -9080,6 +9234,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 7322027453548043363}
   ItemCount: {fileID: 5894783455659074544}
   CountText: {fileID: 5368693168746030595}
@@ -10539,6 +10704,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131d30ef2f7339645bcb272a8f1fbd1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boItem:
+    SdItem:
+      index: 0
+      name: 
+      type: 0
+      subType: 0
+      value: 0
+      prefabPath: 
+      spritePath: 
+      colorCode: 
+    ItemCount: 0
   Icon: {fileID: 8312818855450886631}
   ItemCount: {fileID: 4910379781771635273}
   CountText: {fileID: 6639079107758220732}

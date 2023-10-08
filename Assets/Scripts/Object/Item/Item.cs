@@ -9,7 +9,7 @@ namespace ProjectW.Object
     {
         // 1000, 1001 hp
         // 1002, 1003 mp
-        private int index;
+        [SerializeField] private int index;
 
         private void OnTriggerEnter(Collider other)
         {

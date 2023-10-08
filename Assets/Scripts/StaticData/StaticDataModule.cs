@@ -24,6 +24,7 @@ namespace ProjectW.SD
 
         public void Initialize()
         {
+            // Json으로 변환된 기획데이터를 읽어오기 위한 Loader
             var loader = new StaticDataLoader();
             
             loader.Load(out sdCharacters);
@@ -32,6 +33,7 @@ namespace ProjectW.SD
             loader.Load(out sdItems);
             loader.Load(out sdGrowthStat);
 
+            // 타입별로 아이템을 분류
             loader.SortSdItems(sdItems);
         }
 

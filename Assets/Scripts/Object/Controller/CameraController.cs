@@ -1,8 +1,10 @@
-﻿using ProjectW.Resource;
+﻿using System.Diagnostics.CodeAnalysis;
+using ProjectW.Resource;
 using UnityEngine;
 
 namespace ProjectW.Object
 {
+    [SuppressMessage("ReSharper", "ParameterHidesMember")]
     public class CameraController : MonoBehaviour
     {
         /// <summary>
@@ -58,47 +60,11 @@ namespace ProjectW.Object
             cameraPos.localPosition = Vector3.zero;
 
             // 초기값 설정
-            //  카메라의 위치와 방향을 처음에는 디폴트뷰로 설정
-            transform.SetParent(cameraPos.GetChild(0));
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-        }
-
-        // private void LateUpdate()
-        // {
-        //     // 추적 대상이 없다면 리턴
-        //     if (target == null)
-        //         return;
-        // 
-        //     // 뷰 모드에 따라 이동을 다르게
-        //     switch (camView)
-        //     {
-        //         case Define.Camera.View.Default:
-        //             SetPosition(true, defaultPos);
-        //             break;
-        //         case Define.Camera.View.Front:
-        //             SetPosition(false, frontPos);
-        //             break;
-        //     }
-        // }
-
-        /// <summary>
-        /// 카메라의 이동 및 회전 연산
-        /// </summary>
-        /// <param name="isLerp">이동 시 보간할 것인지? 보간하지 않을 시 한번에 이동</param>
-        /// <param name="target">디폴트 뷰 또는 프론트 뷰 둘 중 하나</param>
-        private void SetPosition(bool isLerp, Transform target)
-        {
-            if (isLerp)
-            {
-                transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * smooth);
-                // transform.forward = Vector3.Lerp(transform.forward, target.forward, Time.deltaTime * smooth);
-            }
-            else
-            {
-                transform.position = target.position;
-                // transform.forward = target.forward;
-            }
+            // 카메라의 위치와 방향을 처음에는 디폴트뷰로 설정
+            Transform tr;
+            (tr = transform).SetParent(cameraPos.GetChild(0));
+            tr.localPosition = Vector3.zero;
+            tr.localRotation = Quaternion.identity;
         }
     }
 }

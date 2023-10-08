@@ -37,12 +37,13 @@ public class IngameUI : MonoBehaviour
     public Transform SystemMessageParent;
     private SystemMessage[] SystemMessages;
 
-    BoCharacter boCharacter;
+    private BoCharacter boCharacter;
 
     public void Init(Character character)
     {
         boCharacter = character.boCharacter;
 
+        // Ingame UI에서 사용 할 플레이어의 스탯 Change 이벤트 추가 및 Invoke
         #region PlayerUIValueChaged
         NicknameText.text = GameManager.User.boAccount.nickname;
         IngameManager.Instance.AddEventToIngameUIValueChanged(OnUpdateHpUI, IngameUIType.Hp);
@@ -98,9 +99,10 @@ public class IngameUI : MonoBehaviour
 
     public void ShowSystemMessage(string value)
     {
-        var text = $"������ [ {value} ] ȹ��";
+        var text = $"아이템 [ {value} ] 획득";
         PickSystemMessage().ShowSystemMessage(text);
     }
+    
 
     private SystemMessage PickSystemMessage()
     {

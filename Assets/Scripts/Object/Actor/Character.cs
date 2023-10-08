@@ -1,11 +1,13 @@
 using ProjectW.DB;
 using UnityEngine;
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using CoffeeCat.Simplify;
 using System.Linq;
 
 namespace ProjectW.Object
 {
+    [SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
     public class Character : Actor
     {
         public CharacterStateMachine stateMachine;
@@ -15,11 +17,12 @@ namespace ProjectW.Object
         private Transform mesh;
         private float turnSmoothTime = 0.1f;
         private float turnSmoothVelocity;
+        private int multiAttackCount = 5;
         public bool onHit = false;
 
-        public float CurrentHp
+        private float CurrentHp
         {
-            get { return boCharacter.currentHp; }
+            get => boCharacter.currentHp;
             set
             {
                 boCharacter.currentHp = value;
@@ -33,7 +36,7 @@ namespace ProjectW.Object
 
         public float CurrentExp
         {
-            get { return boCharacter.currentExp; }
+            get => boCharacter.currentExp;
             set
             {
                 boCharacter.currentExp = value;
@@ -89,43 +92,41 @@ namespace ProjectW.Object
             boCharacter.atkRange = boCharacter.sdCharacter.atkRange;
         }
 
+        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         public override void MoveUpdate()
         {
-            Vector3 direction = boCharacter.moveDir;
-            Transform mainCamTr = Camera.main.transform;
+            Vector3 direction = boCharacter.moveDir; // 캐릭터의 방향 벡터
+            Transform mainCamTr = Camera.main.transform; // 메인 카메라 위치
 
+            // 캐릭터의 방향 벡터의 크기가 0.1보다 크다면 로직을 실행
             if (direction.magnitude >= 0.1f)
             {
+                // 방향 벡터의 라디안 각도를 구하고 이를 디그리로 변환
+                // 카메라가 바라보는 각을 기준으로 이동하기 위해 카메라의 y각을 사용
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + mainCamTr.eulerAngles.y;
+                // 자연스러운 캐릭터의 회전을 위한 것으로 SmoothDampAngle을 통해 절차적 회전 각도를 구함 
                 float angle = Mathf.SmoothDampAngle(mesh.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                // 캐릭터 게임 오브젝트의 회전과 메쉬 오브젝트 회전을 분리
                 mesh.rotation = Quaternion.Euler(0f, angle, 0f);
                 Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                transform.Translate(moveDirection * boActor.moveSpeed * Time.deltaTime);
+                // 기획데이터에서 정의한 이동속도와 deltaTime을 이용하여 캐릭터의 위치를 업데이트
+                transform.Translate(moveDirection * (boActor.moveSpeed * Time.deltaTime));
             }
         }
 
         public bool IsMove()
         {
-            if (boCharacter.moveDir.magnitude < 0.1f)
-                return false;
-            else
-                return true;
+            return !(boCharacter.moveDir.magnitude < 0.1f);
         }
 
         public bool IsGround()
         {
-            if (boCharacter.isGround)
-                return true;
-            else
-                return false;
+            return boCharacter.isGround;
         }
 
         public bool IsDead()
         {
-            if (CurrentHp <= 0)
-                return true;
-            else
-                return false;
+            return CurrentHp <= 0;
         }
 
         public void OnJump()
@@ -136,12 +137,19 @@ namespace ProjectW.Object
 
         public void OnAttack()
         {
-            var monsters = Physics.OverlapSphere(AttackRangeCenter.position, boCharacter.atkRange, 1 << LayerMask.NameToLayer("Monster"));
-
+            var monsters = new Collider[multiAttackCount];
+            // 임의의 구체의 크기만큼 범위를 설정하고 범위 내의 몬스터 Collider를 검출하여 배열에 저장
+            Physics.OverlapSphereNonAlloc(AttackRangeCenter.position, boCharacter.atkRange, monsters, 1 << LayerMask.NameToLayer("Monster"));
+            
             foreach (var monster in monsters)
             {
+                if (!monster)
+                    return;
+                
+                // Monster 컴포넌트의 액세스에 성공했다면
                 if (monster.TryGetComponent(out Monster mon))
                 {
+                    // 몬스터 피격 처리
                     mon.OnHit(boCharacter.atk);
                 }
             }
@@ -175,7 +183,7 @@ namespace ProjectW.Object
 
         private void CharacterLevelUp(float restExp)
         {
-            var growthStat = GameManager.SD.sdGrowthStat.Where(stat => stat.index == boCharacter.sdCharacter.index).SingleOrDefault();
+            var growthStat = GameManager.SD.sdGrowthStat.SingleOrDefault(stat => stat.index == boCharacter.sdCharacter.index);
 
             PoolManagerLight.Instance.SpawnEffect("Character_LevelUp", mesh.position + new Vector3(0, 0.5f, 0), Quaternion.identity, 0.5f);
             boCharacter.level++;
@@ -201,7 +209,6 @@ namespace ProjectW.Object
             {
                 IngameManager.Instance.RespawnCharacter();
             }
-
         }
     }
 }

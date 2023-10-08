@@ -22,11 +22,11 @@ namespace ProjectW
 
         private void Start()
         {
-            StartButton.onClick.AddListener(() => OnClickedStartButton());
-            NicknameConfirmButton.onClick.AddListener(() => OnClickedNicknameConfirmButton());
-            InputFieldCloseButton.onClick.AddListener(() => OnlickedInputFieldCloseButton());
-            ErrorMessageButton.onClick.AddListener(() => OnClickedErrorMessageButton());
-            ContinueButton.onClick.AddListener(() => OnClickedContinueButton());
+            StartButton.onClick.AddListener(OnClickedStartButton);
+            NicknameConfirmButton.onClick.AddListener(OnClickedNicknameConfirmButton);
+            InputFieldCloseButton.onClick.AddListener(OnClickedInputFieldCloseButton);
+            ErrorMessageButton.onClick.AddListener(OnClickedErrorMessageButton);
+            ContinueButton.onClick.AddListener(OnClickedContinueButton);
         }
 
         private void OnClickedStartButton()
@@ -46,10 +46,10 @@ namespace ProjectW
                 ErrorMessage.SetActive(true);
                 return;
             }
-            DataManager.Instance.CreateNewCharacter(NicknameInputField.text);
+            DataManager.CreateNewCharacter(NicknameInputField.text);
         }
 
-        private void OnlickedInputFieldCloseButton()
+        private void OnClickedInputFieldCloseButton()
         {
             NicknameInput.SetActive(false);
 

@@ -1,10 +1,13 @@
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using ProjectW.Object;
 using State = ProjectW.Define.Actor.State;
-using AnimParamater = ProjectW.Define.Actor.AnimParameter;
+using AnimParameter = ProjectW.Define.Actor.AnimParameter;
 
 namespace CoffeeCat
 {
+    [SuppressMessage("ReSharper", "SwitchStatementHandlesSomeKnownEnumValuesWithDefault")]
+    [SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeInvocation")]
     public class StateMachine : MonoBehaviour
     {
         public State state = State.None;
@@ -24,6 +27,7 @@ namespace CoffeeCat
         }
 
         #region MACHINE
+
         public void StateChange(State changeState)
         {
             switch (state)
@@ -42,16 +46,11 @@ namespace CoffeeCat
                 case State.Attack:
                     Attack_Exit();
                     break;
-                case State.Skill:
-                    Skill_Exit();
-                    break;
                 case State.Hit:
                     Hit_Exit();
                     break;
                 case State.Die:
                     Die_Exit();
-                    break;
-                default:
                     break;
             }
 
@@ -72,9 +71,6 @@ namespace CoffeeCat
                     break;
                 case State.Attack:
                     Attack_Enter();
-                    break;
-                case State.Skill:
-                    Skill_Enter();
                     break;
                 case State.Hit:
                     Hit_Enter();
@@ -103,9 +99,6 @@ namespace CoffeeCat
                 case State.Attack:
                     Attack_Update();
                     break;
-                case State.Skill:
-                    Skill_Update();
-                    break;
                 case State.Hit:
                     Hit_Update();
                     break;
@@ -114,9 +107,11 @@ namespace CoffeeCat
                     break;
             }
         }
+
         #endregion
 
         #region STATE
+
         protected virtual void Idle_Enter() { }
 
         protected virtual void Idle_Update() { }
@@ -128,6 +123,12 @@ namespace CoffeeCat
         protected virtual void Walk_Update() { }
 
         protected virtual void Walk_Exit() { }
+
+        protected virtual void Jump_Enter() { }
+
+        protected virtual void Jump_Update() { }
+
+        protected virtual void Jump_Exit() { }
 
         protected virtual void Attack_Enter() { }
 
@@ -146,20 +147,7 @@ namespace CoffeeCat
         protected virtual void Die_Update() { }
 
         protected virtual void Die_Exit() { }
-        #endregion
 
-        #region CHARACTER STATE
-        protected virtual void Jump_Enter() { }
-
-        protected virtual void Jump_Update() { }
-
-        protected virtual void Jump_Exit() { }
-
-        protected virtual void Skill_Enter() { }
-
-        protected virtual void Skill_Update() { }
-
-        protected virtual void Skill_Exit() { }
         #endregion
     }
 }

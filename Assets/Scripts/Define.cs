@@ -66,7 +66,7 @@
         /// <summary>
         /// 액터의 상태
         /// </summary>
-        public enum State { None, Idle, Walk, Jump, Attack, Skill, Hit, Die }
+        public enum State { None, Idle, Walk, Jump, Attack, Hit, Die }
 
         public enum AnimParameter { IsWalk, IsJump, AttackTrigger, IsHit }
     }
